@@ -1,3 +1,4 @@
+
 name: Build RMS CREDITS APK
 
 on:
@@ -27,7 +28,10 @@ jobs:
         run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
 
       - name: Extract Android project
-        run: | unzip -q RMS_CREDITS_Android_Studio_Project.zip -d extracted echo "PROJECT_DIR=$GITHUB_WORKSPACE/extracted/RMS_CREDITS_Android_Project" >> "$GITHUB_ENV" 
+        run: |
+          unzip -q RMS_CREDITS_Android_Studio_Project.zip -d extracted
+          echo "PROJECT_DIR=$GITHUB_WORKSPACE/extracted/RMS_CREDITS_Android_Project" >> "$GITHUB_ENV"
+
       - name: Install Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
